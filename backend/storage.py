@@ -8,8 +8,9 @@ import tempfile
 import threading
 from pathlib import Path
 
-# Folder where all JSON files are stored (backend/data)
-DATA_DIR = Path(__file__).parent / "data"
+# Folder where all JSON files are stored (backend/data).
+# The automatic tests set HR_DATA_DIR to a temporary copy, so tests never change your real data.
+DATA_DIR = Path(os.environ.get("HR_DATA_DIR", Path(__file__).parent / "data"))
 
 # A lock makes sure two requests never write a file at the same moment
 _write_lock = threading.Lock()

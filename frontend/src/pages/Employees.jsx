@@ -129,7 +129,6 @@ export default function Employees() {
               <thead>
                 <tr>
                   <th>Employee</th>
-                  <th>ID</th>
                   <th>Department</th>
                   <th>Designation</th>
                   <th>Joined</th>
@@ -146,11 +145,10 @@ export default function Employees() {
                         <div className="avatar">{initials(emp.full_name)}</div>
                         <div>
                           <Link to={`/employees/${emp.id}`} className="strong link">{emp.full_name}</Link>
-                          <div className="muted small">{emp.email}</div>
+                          <div className="muted small">{emp.id} · {emp.email}</div>
                         </div>
                       </div>
                     </td>
-                    <td className="nowrap">{emp.id}</td>
                     <td>{emp.department_name}</td>
                     <td>{emp.designation}</td>
                     <td className="nowrap">{formatDate(emp.join_date)}</td>

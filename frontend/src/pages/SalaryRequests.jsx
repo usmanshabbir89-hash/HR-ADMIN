@@ -96,7 +96,6 @@ export default function SalaryRequests() {
                   <th>Type</th>
                   <th className="right">Amount</th>
                   <th>Reason</th>
-                  <th>Requested</th>
                   <th>Status</th>
                   <th>HR remarks</th>
                   <th className="right">Actions</th>
@@ -107,10 +106,12 @@ export default function SalaryRequests() {
                   <tr key={r.id}>
                     <td className="nowrap">{r.id}</td>
                     <td><EmployeeCell name={r.employee_name} id={r.employee_id} /></td>
-                    <td className="nowrap">{r.request_type}</td>
+                    <td className="nowrap">
+                      <div>{r.request_type}</div>
+                      <div className="muted small">requested {formatDate(r.requested_on)}</div>
+                    </td>
                     <td className="right nowrap">{formatMoney(r.amount)}</td>
                     <td><ShortText text={r.reason} /></td>
-                    <td className="nowrap">{formatDate(r.requested_on)}</td>
                     <td><StatusBadge status={r.status} /></td>
                     <td><ShortText text={r.hr_remarks} /></td>
                     <td className="right">

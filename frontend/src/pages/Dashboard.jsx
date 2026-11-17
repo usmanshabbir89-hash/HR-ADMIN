@@ -155,7 +155,7 @@ export default function Dashboard() {
                         <div className="strong">{item.employee_name}</div>
                         <div className="muted small">{item.employee_id}</div>
                       </td>
-                      <td>{item.details}</td>
+                      <td className="details-cell">{item.details}</td>
                       <td className="nowrap">{formatDate(item.submitted_on)}</td>
                       <td className="right nowrap">
                         <button className="btn btn-sm btn-success" onClick={() => openReview(item, "approve")}>

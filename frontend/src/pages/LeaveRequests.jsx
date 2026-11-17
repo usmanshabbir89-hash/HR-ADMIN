@@ -100,9 +100,7 @@ export default function LeaveRequests() {
                   <th>Employee</th>
                   <th>Leave type</th>
                   <th>Dates</th>
-                  <th className="right">Days</th>
                   <th>Reason</th>
-                  <th>Applied</th>
                   <th>Status</th>
                   <th>HR remarks</th>
                   <th className="right">Actions</th>
@@ -114,10 +112,11 @@ export default function LeaveRequests() {
                     <td className="nowrap">{r.id}</td>
                     <td><EmployeeCell name={r.employee_name} id={r.employee_id} /></td>
                     <td className="nowrap">{r.leave_type_name}</td>
-                    <td className="nowrap">{formatDate(r.start_date)} – {formatDate(r.end_date)}</td>
-                    <td className="right">{r.days}</td>
+                    <td className="nowrap">
+                      <div>{formatDate(r.start_date)} – {formatDate(r.end_date)}</div>
+                      <div className="muted small">{r.days} day{r.days === 1 ? "" : "s"} · applied {formatDate(r.applied_on)}</div>
+                    </td>
                     <td><ShortText text={r.reason} /></td>
-                    <td className="nowrap">{formatDate(r.applied_on)}</td>
                     <td><StatusBadge status={r.status} /></td>
                     <td><ShortText text={r.hr_remarks} /></td>
                     <td className="right">
