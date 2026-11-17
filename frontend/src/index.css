@@ -338,8 +338,66 @@ button:disabled { cursor: not-allowed; opacity: 0.6; }
 .type-desc { flex: 1; }
 .type-card-foot { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 10px; }
 
+/* ---------------- Attendance ---------------- */
+.date-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.date-title { font-size: 18px; margin-left: 8px; }
+.icon-btn:disabled { opacity: 0.4; }
+.chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--muted); font-weight: 500;
+}
+.chip b { font-size: 18px; color: var(--text); }
+.chip.active { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); color: var(--text); }
+.chip-present b { color: var(--green); }
+.chip-late b { color: var(--amber); }
+.chip-absent b { color: var(--red); }
+.chip-not-marked b { color: var(--gray); }
+.table-wrap.flush-top { margin-top: -20px; }
+.table-wrap.flush-top th { border-top: none; }
+
+/* ---------------- Salary certificate ---------------- */
+.certificate {
+  background: #fff; color: #1a1a1a;
+  max-width: 800px; width: 100%; margin: 0 auto;
+  padding: 48px 56px; border: 1px solid var(--border); border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
+  font-size: 15px; line-height: 1.7;
+}
+.cert-head { display: flex; align-items: center; gap: 14px; padding-bottom: 18px; border-bottom: 3px solid var(--primary); }
+.cert-logo {
+  width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+  display: grid; place-items: center; background: var(--primary); color: #fff;
+}
+.cert-company { font-size: 20px; font-weight: 700; line-height: 1.3; }
+.cert-contact { font-size: 13px; color: #555; line-height: 1.5; }
+.cert-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 22px 0 18px; font-size: 14px; }
+.cert-to { font-weight: 600; margin: 0 0 6px; }
+.cert-title {
+  text-align: center; font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase;
+  margin: 18px 0 22px; text-decoration: underline; text-underline-offset: 6px;
+}
+.certificate p { margin: 0 0 14px; }
+.cert-table { width: 100%; max-width: 440px; border-collapse: collapse; margin: 6px 0 8px; }
+.cert-table td { padding: 8px 12px; border: 1px solid #d6d9e0; }
+.cert-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.cert-total td { font-weight: 700; background: #f4f5f8; }
+.cert-words { font-style: italic; color: #444; }
+.cert-sign { display: flex; flex-direction: column; width: 240px; margin-top: 64px; line-height: 1.5; }
+.cert-line { border-top: 1px solid #333; margin-bottom: 8px; }
+
+/* ---------------- Printing ---------------- */
+@media print {
+  @page { size: A4; margin: 16mm; }
+  .sidebar, .sidebar-overlay, .topbar, .no-print { display: none !important; }
+  body, .main, .content { background: #fff; margin: 0; padding: 0; max-width: none; }
+  .certificate { border: none; box-shadow: none; padding: 0; max-width: none; }
+}
+
 /* ---------------- Small screens ---------------- */
 @media (max-width: 600px) {
+  .certificate { padding: 24px 18px; font-size: 14px; }
   .toolbar-spacer { display: none; }
   .form-grid { grid-template-columns: 1fr; }
   .span-2 { grid-column: auto; }

@@ -2,13 +2,15 @@
 import { Route, Routes } from "react-router-dom";
 
 import Layout from "./components/Layout.jsx";
-import ComingSoon from "./pages/ComingSoon.jsx";
+import Attendance from "./pages/Attendance.jsx";
+import CertificateView from "./pages/CertificateView.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Departments from "./pages/Departments.jsx";
 import EmployeeDetails from "./pages/EmployeeDetails.jsx";
 import Employees from "./pages/Employees.jsx";
 import LeaveRequests from "./pages/LeaveRequests.jsx";
 import LeaveTypes from "./pages/LeaveTypes.jsx";
+import SalaryCertificates from "./pages/SalaryCertificates.jsx";
 import SalaryRequests from "./pages/SalaryRequests.jsx";
 import ShortLeaves from "./pages/ShortLeaves.jsx";
 
@@ -25,9 +27,10 @@ export default function App() {
         <Route path="/leave-types" element={<LeaveTypes />} />
         <Route path="/leave-requests" element={<LeaveRequests />} />
         <Route path="/short-leaves" element={<ShortLeaves />} />
-        <Route path="/attendance" element={<ComingSoon phase={8} />} />
+        <Route path="/attendance" element={<Attendance />} />
         <Route path="/salary-requests" element={<SalaryRequests />} />
-        <Route path="/salary-certificates" element={<ComingSoon phase={8} />} />
+        <Route path="/salary-certificates" element={<SalaryCertificates />} />
+        <Route path="/salary-certificates/:id" element={<CertificateView />} />
         <Route
           path="*"
           element={

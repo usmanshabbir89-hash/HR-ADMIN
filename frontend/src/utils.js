@@ -31,6 +31,38 @@ export function initials(name = "") {
     .join("");
 }
 
+// 140000 -> "One Hundred Forty Thousand" (used on salary certificates)
+const ONES = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+  "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+const TENS = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+
+function underThousand(n) {
+  const words = [];
+  if (n >= 100) {
+    words.push(`${ONES[Math.floor(n / 100)]} Hundred`);
+    n %= 100;
+  }
+  if (n >= 20) {
+    words.push(TENS[Math.floor(n / 10)] + (n % 10 ? `-${ONES[n % 10]}` : ""));
+  } else if (n > 0) {
+    words.push(ONES[n]);
+  }
+  return words.join(" ");
+}
+
+export function numberToWords(amount) {
+  let n = Math.floor(Number(amount) || 0);
+  if (n === 0) return "Zero";
+  const parts = [];
+  for (const [size, name] of [[1e9, "Billion"], [1e6, "Million"], [1e3, "Thousand"], [1, ""]]) {
+    if (n >= size) {
+      parts.push(underThousand(Math.floor(n / size)) + (name ? ` ${name}` : ""));
+      n %= size;
+    }
+  }
+  return parts.join(" ");
+}
+
 // "2026-11-17" -> "Tuesday, 17 November 2026"
 export function formatLongDate(isoDate) {
   const [year, month, day] = isoDate.split("-").map(Number);
