@@ -10,8 +10,13 @@ export default function Layout() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false); // used on small screens only
 
-  // Find the label of the current page for the top bar
-  const current = ALL_LINKS.find((link) => link.path === location.pathname);
+  // Find the label of the current page for the top bar.
+  // "/employees/EMP001" also belongs to "Employees".
+  const current = ALL_LINKS.find(
+    (link) =>
+      link.path === location.pathname ||
+      (link.path !== "/" && location.pathname.startsWith(link.path + "/"))
+  );
   const pageTitle = current ? current.label : "Page not found";
 
   // Close the mobile menu whenever the page changes, and update the browser tab title
@@ -39,7 +44,7 @@ export default function Layout() {
               <div className="nav-title">{section.title}</div>
               {section.links.map(({ path, label, icon: Icon }) => (
                 // NavLink adds the "active" class when this is the current page
-                <NavLink key={path} to={path} end className="nav-link">
+                <NavLink key={path} to={path} end={path === "/"} className="nav-link">
                   <Icon size={18} />
                   {label}
                 </NavLink>

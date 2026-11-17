@@ -16,6 +16,21 @@ export function formatDate(isoDate) {
   });
 }
 
+// Today's date as "YYYY-MM-DD" (local time) - used as the max value of date inputs
+export function todayISO() {
+  return new Date().toLocaleDateString("en-CA");
+}
+
+// "Ayesha Khan" -> "AK" (for the round avatar)
+export function initials(name = "") {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0].toUpperCase())
+    .join("");
+}
+
 // "2026-11-17" -> "Tuesday, 17 November 2026"
 export function formatLongDate(isoDate) {
   const [year, month, day] = isoDate.split("-").map(Number);

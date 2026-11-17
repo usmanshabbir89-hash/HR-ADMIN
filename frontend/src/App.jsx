@@ -4,6 +4,9 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import ComingSoon from "./pages/ComingSoon.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import Departments from "./pages/Departments.jsx";
+import EmployeeDetails from "./pages/EmployeeDetails.jsx";
+import Employees from "./pages/Employees.jsx";
 
 export default function App() {
   return (
@@ -11,8 +14,10 @@ export default function App() {
       {/* Every page is shown inside the Layout (sidebar + top bar) */}
       <Route element={<Layout />}>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/employees" element={<ComingSoon phase={6} />} />
-        <Route path="/departments" element={<ComingSoon phase={6} />} />
+        <Route path="/employees" element={<Employees />} />
+        {/* :id is a placeholder - /employees/EMP001 gives id = "EMP001" */}
+        <Route path="/employees/:id" element={<EmployeeDetails />} />
+        <Route path="/departments" element={<Departments />} />
         <Route path="/leave-types" element={<ComingSoon phase={7} />} />
         <Route path="/leave-requests" element={<ComingSoon phase={7} />} />
         <Route path="/short-leaves" element={<ComingSoon phase={7} />} />
