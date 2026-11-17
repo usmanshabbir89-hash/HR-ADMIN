@@ -1,0 +1,7 @@
+[
+  {"id": "AT001", "employee_id": "EMP001", "date": "2026-11-17", "check_in": "08:55", "check_out": "17:05", "status": "Present", "remarks": ""},
+  {"id": "AT002", "employee_id": "EMP002", "date": "2026-11-17", "check_in": "09:32", "check_out": "17:30", "status": "Late", "remarks": "Traffic"},
+  {"id": "AT003", "employee_id": "EMP003", "date": "2026-11-17", "check_in": "09:00", "check_out": "17:00", "status": "Present", "remarks": ""},
+  {"id": "AT004", "employee_id": "EMP004", "date": "2026-11-17", "check_in": null, "check_out": null, "status": "Absent", "remarks": "No information"},
+  {"id": "AT005", "employee_id": "EMP005", "date": "2026-11-17", "check_in": "09:10", "check_out": "17:00", "status": "Present", "remarks": ""}
+]

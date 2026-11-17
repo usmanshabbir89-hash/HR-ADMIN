@@ -1,0 +1,4 @@
+[
+  {"id": "SR001", "employee_id": "EMP004", "request_type": "Salary Advance", "amount": 50000, "reason": "Medical expenses", "status": "Pending", "requested_on": "2026-11-16", "reviewed_on": null, "hr_remarks": ""},
+  {"id": "SR002", "employee_id": "EMP003", "request_type": "Salary Correction", "amount": 5000, "reason": "Overtime not added in October", "status": "Approved", "requested_on": "2026-11-02", "reviewed_on": "2026-11-03", "hr_remarks": "Will be added in November payroll"}
+]

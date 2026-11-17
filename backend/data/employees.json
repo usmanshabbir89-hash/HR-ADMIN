@@ -1,0 +1,8 @@
+[
+  {"id": "EMP001", "full_name": "Ayesha Khan", "email": "ayesha.khan@company.com", "phone": "0300-1111111", "department_id": "DEP01", "designation": "HR Manager", "join_date": "2021-03-15", "basic_salary": 150000, "allowances": 30000, "status": "Active"},
+  {"id": "EMP002", "full_name": "Ali Raza", "email": "ali.raza@company.com", "phone": "0300-2222222", "department_id": "DEP03", "designation": "Software Engineer", "join_date": "2022-07-01", "basic_salary": 120000, "allowances": 20000, "status": "Active"},
+  {"id": "EMP003", "full_name": "Sara Ahmed", "email": "sara.ahmed@company.com", "phone": "0300-3333333", "department_id": "DEP02", "designation": "Accountant", "join_date": "2020-01-10", "basic_salary": 110000, "allowances": 15000, "status": "Active"},
+  {"id": "EMP004", "full_name": "John Mathew", "email": "john.mathew@company.com", "phone": "0300-4444444", "department_id": "DEP04", "designation": "Sales Executive", "join_date": "2023-02-20", "basic_salary": 90000, "allowances": 25000, "status": "Active"},
+  {"id": "EMP005", "full_name": "Fatima Noor", "email": "fatima.noor@company.com", "phone": "0300-5555555", "department_id": "DEP03", "designation": "IT Support Officer", "join_date": "2024-05-05", "basic_salary": 80000, "allowances": 10000, "status": "Active"},
+  {"id": "EMP006", "full_name": "Bilal Hussain", "email": "bilal.hussain@company.com", "phone": "0300-6666666", "department_id": "DEP04", "designation": "Sales Officer", "join_date": "2022-09-12", "basic_salary": 75000, "allowances": 10000, "status": "Inactive"}
+]

@@ -1,0 +1,5 @@
+[
+  {"id": "LR001", "employee_id": "EMP002", "leave_type_id": "LT01", "start_date": "2026-11-24", "end_date": "2026-11-26", "days": 3, "reason": "Family trip", "status": "Pending", "applied_on": "2026-11-15", "reviewed_on": null, "hr_remarks": ""},
+  {"id": "LR002", "employee_id": "EMP003", "leave_type_id": "LT02", "start_date": "2026-11-10", "end_date": "2026-11-11", "days": 2, "reason": "Fever", "status": "Approved", "applied_on": "2026-11-10", "reviewed_on": "2026-11-10", "hr_remarks": "Get well soon"},
+  {"id": "LR003", "employee_id": "EMP004", "leave_type_id": "LT03", "start_date": "2026-11-05", "end_date": "2026-11-05", "days": 1, "reason": "Personal work", "status": "Rejected", "applied_on": "2026-11-04", "reviewed_on": "2026-11-04", "hr_remarks": "Month-end sales targets"}
+]

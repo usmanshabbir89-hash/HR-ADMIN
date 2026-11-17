@@ -1,0 +1,6 @@
+[
+  {"id": "DEP01", "name": "Human Resources", "code": "HR", "head_employee_id": "EMP001", "description": "People and policies", "status": "Active"},
+  {"id": "DEP02", "name": "Finance", "code": "FIN", "head_employee_id": "EMP003", "description": "Accounts and payroll", "status": "Active"},
+  {"id": "DEP03", "name": "Information Technology", "code": "IT", "head_employee_id": "EMP002", "description": "Systems and support", "status": "Active"},
+  {"id": "DEP04", "name": "Sales", "code": "SAL", "head_employee_id": "EMP004", "description": "Customers and revenue", "status": "Active"}
+]

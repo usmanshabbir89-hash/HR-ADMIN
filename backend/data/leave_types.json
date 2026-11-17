@@ -1,0 +1,6 @@
+[
+  {"id": "LT01", "name": "Annual Leave", "code": "ANNUAL", "days_per_year": 21, "is_paid": true, "description": "Planned yearly vacation"},
+  {"id": "LT02", "name": "Sick Leave", "code": "SICK", "days_per_year": 10, "is_paid": true, "description": "Illness or medical reasons"},
+  {"id": "LT03", "name": "Emergency Leave", "code": "EMERGENCY", "days_per_year": 3, "is_paid": true, "description": "Urgent personal matters"},
+  {"id": "LT04", "name": "Unpaid Leave", "code": "UNPAID", "days_per_year": 30, "is_paid": false, "description": "Leave without pay"}
+]

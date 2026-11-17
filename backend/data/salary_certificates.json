@@ -1,0 +1,3 @@
+[
+  {"id": "SC001", "certificate_no": "HR/SC/2026/001", "employee_id": "EMP001", "issue_date": "2026-11-01", "purpose": "Bank loan application", "addressed_to": "The Branch Manager, City Bank", "basic_salary": 150000, "allowances": 30000, "total_salary": 180000}
+]

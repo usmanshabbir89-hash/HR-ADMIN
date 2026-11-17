@@ -1,0 +1,4 @@
+[
+  {"id": "SL001", "employee_id": "EMP002", "date": "2026-11-18", "from_time": "10:00", "to_time": "12:00", "hours": 2.0, "reason": "Bank visit", "status": "Pending", "applied_on": "2026-11-17", "reviewed_on": null, "hr_remarks": ""},
+  {"id": "SL002", "employee_id": "EMP005", "date": "2026-11-12", "from_time": "14:00", "to_time": "16:00", "hours": 2.0, "reason": "Doctor appointment", "status": "Approved", "applied_on": "2026-11-11", "reviewed_on": "2026-11-11", "hr_remarks": "Approved"}
+]
