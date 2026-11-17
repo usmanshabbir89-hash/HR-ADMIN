@@ -22,7 +22,14 @@ backend/
   schemas.py       Validation rules (Pydantic)
   storage.py       Safe JSON read/write helpers
   requirements.txt Python packages
-frontend/          React + Vite app (added in Phase 5)
+frontend/
+  src/
+    pages/         One file per screen (Dashboard.jsx, ...)
+    components/    Reusable pieces (Layout, StatCard, ReviewDialog, ...)
+    api.js         All calls to the backend
+    navigation.js  Sidebar menu
+    index.css      Styling
+  vite.config.js   Dev server; forwards /api to the backend
 ```
 
 ## Run the backend (Windows)
@@ -39,6 +46,15 @@ uvicorn main:app --reload
 - Interactive API docs (Swagger): http://127.0.0.1:8000/docs
 
 > On some Windows PCs the command is `py` instead of `python` (e.g. `py -m venv venv`).
+
+## Run the frontend
+Needs **Node.js 18 or newer**. Keep the backend running, then in a second terminal:
+```
+cd frontend
+npm install
+npm run dev
+```
+Open http://localhost:5173 — the HR Admin dashboard.
 
 ## API endpoints (so far)
 | Method | Path | Purpose |
