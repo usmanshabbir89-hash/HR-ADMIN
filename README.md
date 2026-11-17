@@ -12,7 +12,12 @@ backend/
     leave_types.py
     leave_requests.py
     short_leaves.py
+    attendance.py
+    salary_requests.py
+    salary_certificates.py
+    dashboard.py
   helpers.py       Shared rules for requests (approve/reject, active employee)
+  settings.py      Company details, currency, office start / late time
   main.py          FastAPI app (entry point)
   schemas.py       Validation rules (Pydantic)
   storage.py       Safe JSON read/write helpers
@@ -61,6 +66,18 @@ uvicorn main:app --reload
 | POST | /api/short-leaves | Submit short leave (max 4 hours, no overlap) |
 | PATCH | /api/short-leaves/{id}/approve · /reject | Approve / reject |
 | DELETE | /api/short-leaves/{id} | Cancel a Pending request |
+| GET | /api/attendance?date=&employee_id=&status=&month= | List attendance |
+| POST | /api/attendance | Mark attendance (status calculated automatically) |
+| GET / PUT / DELETE | /api/attendance/{id} | View / correct / delete a record |
+| GET | /api/salary-requests?status=&employee_id=&request_type= | List salary requests |
+| POST | /api/salary-requests | Submit salary request |
+| PATCH | /api/salary-requests/{id}/approve · /reject | Approve / reject |
+| DELETE | /api/salary-requests/{id} | Cancel a Pending request |
+| GET | /api/salary-certificates?employee_id= | List certificates |
+| GET | /api/salary-certificates/{id} | One certificate with company details (for printing) |
+| POST | /api/salary-certificates | Generate a certificate |
+| GET | /api/dashboard/summary?date= | Dashboard stat cards |
+| GET | /api/dashboard/pending | All pending requests in one list |
 
 ## Business rules
 - Requests can only be made for an existing, **Active** employee.
@@ -68,3 +85,9 @@ uvicorn main:app --reload
 - Rejecting a request requires HR remarks.
 - Leave: end date ≥ start date, no overlapping leave, and enough yearly balance for that leave type.
 - Short leave: to time > from time, at most 4 hours, no overlap on the same day.
+- Attendance: one record per employee per day, no future dates. No check-in = **Absent**,
+  check-in after 09:15 = **Late**, otherwise **Present** (times set in `settings.py`).
+- Salary requests: amount > 0, one Pending request of each type per employee,
+  a salary advance cannot exceed one month's gross salary.
+- Salary certificates: only for Active employees; salary details are copied into the
+  certificate on the day it is issued. Numbers look like `HR/SC/2026/001`.

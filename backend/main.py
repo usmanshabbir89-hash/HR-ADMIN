@@ -6,7 +6,8 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from routers import departments, employees, leave_requests, leave_types, short_leaves
+from routers import (attendance, dashboard, departments, employees, leave_requests,
+                     leave_types, salary_certificates, salary_requests, short_leaves)
 from storage import read_data
 
 app = FastAPI(
@@ -37,6 +38,10 @@ app.include_router(employees.router)
 app.include_router(leave_types.router)
 app.include_router(leave_requests.router)
 app.include_router(short_leaves.router)
+app.include_router(attendance.router)
+app.include_router(salary_requests.router)
+app.include_router(salary_certificates.router)
+app.include_router(dashboard.router)
 
 DATA_FILES = [
     "departments", "employees", "leave_types", "leave_requests",

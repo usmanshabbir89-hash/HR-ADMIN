@@ -124,3 +124,42 @@ class ShortLeaveIn(CleanModel):
 # ---------------- Approve / Reject ----------------
 class ReviewIn(CleanModel):
     hr_remarks: str = Field("", max_length=300)
+
+
+# ---------------- Attendance ----------------
+class AttendanceIn(CleanModel):
+    employee_id: str = Field(..., min_length=1)
+    date: DateType
+    check_in: Optional[time] = None   # empty = employee was absent
+    check_out: Optional[time] = None
+    remarks: str = Field("", max_length=200)
+
+    @model_validator(mode="after")
+    def check_times(self):
+        if self.date > date.today():
+            raise ValueError("Attendance cannot be marked for a future date")
+        if self.check_out and not self.check_in:
+            raise ValueError("Check-out needs a check-in time")
+        if self.check_in and self.check_out and self.check_out <= self.check_in:
+            raise ValueError("Check-out must be after check-in")
+        return self
+
+
+# ---------------- Salary Requests ----------------
+SALARY_REQUEST_TYPES = Literal[
+    "Salary Advance", "Salary Increment", "Salary Correction", "Loan", "Other"
+]
+
+
+class SalaryRequestIn(CleanModel):
+    employee_id: str = Field(..., min_length=1)
+    request_type: SALARY_REQUEST_TYPES
+    amount: float = Field(..., gt=0)  # must be more than 0
+    reason: str = Field(..., min_length=3, max_length=300)
+
+
+# ---------------- Salary Certificates ----------------
+class SalaryCertificateIn(CleanModel):
+    employee_id: str = Field(..., min_length=1)
+    purpose: str = Field(..., min_length=3, max_length=200)
+    addressed_to: str = Field("To Whom It May Concern", min_length=3, max_length=200)
